@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brazuk IA | Inteligencia Artificial y ChatGPT Escolar</title>
+  
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="brand-icon">
+        <i class="fa-solid fa-brain"></i>
+      </div>
+      <div class="brand-text">
+        BRAZUK <span>IA</span>
+      </div>
+    </div>
+
+    <div class="nav-tabs">
+      <button class="tab-btn active" data-tab="tab-ai">
+        <i class="fa-solid fa-robot"></i> Brazuk AI
+      </button>
+      <button class="tab-btn" data-tab="tab-chatgpt">
+        <i class="fa-solid fa-comments"></i> ChatGPT Web
+      </button>
+    </div>
+
+    <div class="nav-actions">
+      <button id="panicBtn" class="panic-btn" title="Activa pantalla de camuflaje (Tecla ESC)">
+        <i class="fa-solid fa-eye-slash"></i> Pánico (ESC)
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ========================================== -->
+    <!-- 1. TAB: CENTRO DE INTELIGENCIA ARTIFICIAL -->
+    <!-- ========================================== -->
+    <section id="tab-ai" class="tab-content active">
+      <header class="hero">
+        <div class="hero-badge">
+          <i class="fa-solid fa-bolt"></i> IA integrada en la misma página
+        </div>
+        <h1>Potencia tu Estudio y Creatividad</h1>
+        <p>Conversa con la IA aquí mismo o abre los portales de IA en la ventana integrada sin salir de Brazuk Hub.</p>
+      </header>
+
+      <!-- Brazuk AI Built-in Chat Assistant -->
+      <div class="builtin-chat-container">
+        <div class="chat-header-bar">
+          <div class="chat-bot-profile">
+            <div class="chat-bot-avatar">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="chat-bot-details">
+              <h3>Brazuk AI <span class="online-indicator" title="En línea"></span></h3>
+              <p>Asistente escolar, tareas, redacción y programación sin salir de la página</p>
+            </div>
+          </div>
+          <span class="tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+            <i class="fa-solid fa-shield-halved"></i> Integrado Local
+          </span>
+        </div>
+
+        <div class="chat-history" id="chatHistory">
+          <div class="chat-msg bot">
+            <div class="chat-bot-avatar" style="width: 32px; height: 32px; font-size: 0.9rem; flex-shrink: 0;">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="msg-bubble">
+              ¡Hola! Soy tu asistente de IA integrado. Puedes hacerme preguntas sobre matemáticas, ciencias, resúmenes de historia, ideas para tareas o código. ¡Escribe abajo o elige un tema rápido!
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-quick-chips">
+          <button class="quick-chip" data-prompt="Explícame el teorema de Pitágoras con un ejemplo sencillo">📐 Teorema de Pitágoras</button>
+          <button class="quick-chip" data-prompt="¿Qué es la fotosíntesis y cuál es su fórmula?">🌱 Fotosíntesis</button>
+          <button class="quick-chip" data-prompt="¿Cuál es la diferencia entre célula eucariota y procariota?">🔬 Eucariota vs Procariota</button>
+          <button class="quick-chip" data-prompt="Dame una estructura para hacer un buen ensayo escolar">📝 Cómo hacer un ensayo</button>
+          <button class="quick-chip" data-prompt="Escribe un ejemplo de código en JavaScript para un juego">💻 Código para juego</button>
+        </div>
+
+        <div class="chat-input-bar">
+          <input type="text" id="chatInput" placeholder="Pregúntale a Brazuk AI aquí mismo... (Presiona Enter)" />
+          <button class="chat-send-btn" id="chatSendBtn">
+            <span>Enviar</span> <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+
+      </section>
+
+    <!-- ========================================== -->
+    <!-- TAB: CHATGPT WEB & SUITE IA DESBLOQUEADA   -->
+    <!-- ========================================== -->
+    <section id="tab-chatgpt" class="tab-content">
+      <header class="hero">
+        <div class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+          <i class="fa-solid fa-lock-open"></i> 100% Desbloqueado · Libre de Filtros Escolares
+        </div>
+        <h1>ChatGPT Web</h1>
+        <p>Una web completa dentro de Brazuk Hub: conversa con ChatGPT con formato Markdown, código, guardado de chats y sin bloqueos.</p>
+      </header>
+
+      <div class="chatgpt-suite-wrapper">
+        <!-- Switcher de Modos de Visualización -->
+        <div class="chatgpt-nav-modes">
+          <button class="chatgpt-mode-btn active" data-mode="direct">
+            <i class="fa-solid fa-comments"></i> ChatGPT Directo (Chat Inteligente)
+          </button>
+          
+          <button class="chatgpt-mode-btn" data-mode="cloak">
+            <i class="fa-solid fa-user-secret"></i> Lanzador Anti-Filtro (Camuflaje about:blank)
+          </button>
+        </div>
+
+        <!-- MODO 1: CHATGPT DIRECTO INTEGRADO -->
+        <div id="mode-direct" class="chatgpt-mode-view active">
+          <div class="chatgpt-app-container">
+            <!-- Sidebar -->
+            <div class="chatgpt-sidebar">
+              <button id="btnNewChat" class="chatgpt-new-btn">
+                <i class="fa-solid fa-plus"></i> Nueva Conversación
+              </button>
+
+              <div class="chatgpt-sidebar-section">
+                <div class="chatgpt-sidebar-title">Modelo de Inteligencia</div>
+                <select id="chatgptModelSelect" class="model-selector-custom">
+                  <option value="openai">🟢 ChatGPT (OpenAI GPT-4o)</option>
+                  <option value="gpt4omini">⚡ ChatGPT (GPT-4o Mini)</option>
+                  <option value="gpt35">🚀 ChatGPT (GPT-3.5 Turbo)</option>
+                </select>
+                <div style="margin-top: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+                  <button id="btnToggleApiKey" style="background: none; border: none; color: var(--accent-cyan); font-size: 0.73rem; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 2px 0;">
+                    <i class="fa-solid fa-key"></i> Clave API Opcional
+                  </button>
+                  <span id="apiKeyStatusBadge" style="font-size: 0.68rem; color: #10b981; display: none;"><i class="fa-solid fa-check"></i> Activa</span>
+                </div>
+                <div id="apiKeyContainer" style="display: none; margin-top: 0.4rem; padding: 0.5rem; background: rgba(0,0,0,0.35); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                  <input type="password" id="customApiKeyInput" placeholder="sk-... (OpenAI / Groq / OpenRouter)" style="width: 100%; box-sizing: border-box; padding: 0.4rem; font-size: 0.75rem; border-radius: 6px; background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.15); color: #fff; margin-bottom: 0.4rem;" />
+                  <div style="display: flex; gap: 0.4rem;">
+                    <button id="btnSaveApiKey" class="engine-btn" style="padding: 0.25rem 0.5rem; font-size: 0.72rem; flex: 1; border-color: var(--accent-cyan);">Guardar</button>
+                    <button id="btnClearApiKey" class="engine-btn" style="padding: 0.25rem 0.5rem; font-size: 0.72rem; color: #f43f5e; border-color: rgba(244,63,94,0.3);">Borrar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="chatgpt-sidebar-section">
+                <div class="chatgpt-sidebar-title">Prompts Rápidos para Tareas</div>
+                <div class="chatgpt-prompts-list">
+                  <button class="chatgpt-prompt-chip" data-text="Explícame cómo resolver una ecuación de segundo grado con un ejemplo paso a paso">
+                    <i class="fa-solid fa-calculator" style="color: #38bdf8;"></i> Resolver Ecuaciones
+                  </button>
+                  <button class="chatgpt-prompt-chip" data-text="Escribe un ensayo escolar argumentativo de 4 párrafos sobre el cambio climático">
+                    <i class="fa-solid fa-pen-nib" style="color: #f59e0b;"></i> Ensayo Escolar
+                  </button>
+                  <button class="chatgpt-prompt-chip" data-text="Explícame las 3 leyes de Newton con ejemplos sencillos de la vida cotidiana">
+                    <i class="fa-solid fa-atom" style="color: #10b981;"></i> Leyes de Newton
+                  </button>
+                  <button class="chatgpt-prompt-chip" data-text="Escribe un script en Python para un juego interactivo de adivinar el número con pistas">
+                    <i class="fa-brands fa-python" style="color: #6366f1;"></i> Código en Python
+                  </button>
+                  <button class="chatgpt-prompt-chip" data-text="Traduce el siguiente texto a inglés avanzado y explica los errores de pronunciación comunes: ">
+                    <i class="fa-solid fa-language" style="color: #ec4899;"></i> Traductor & Inglés
+                  </button>
+                </div>
+              </div>
+
+              <div class="chatgpt-sidebar-section" style="flex: 1; min-height: 120px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span class="chatgpt-sidebar-title">Conversaciones Guardadas</span>
+                  <button id="btnClearHistory" style="background: none; border: none; color: #ef4444; font-size: 0.72rem; cursor: pointer;" title="Borrar todas las sesiones">
+                    <i class="fa-solid fa-trash-can"></i> Limpiar
+                  </button>
+                </div>
+                <div id="chatgptSessionsList" class="chatgpt-history-list">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Chat Area -->
+            <div class="chatgpt-main">
+              <!-- Topbar -->
+              <div class="chatgpt-topbar">
+                <div class="chatgpt-model-badge">
+                  <span class="status-dot-pulse"></span>
+                  <span id="chatgptActiveModelName">ChatGPT (GPT-4o)</span>
+                  <span class="tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3); font-size: 0.7rem; padding: 0.2rem 0.5rem;">
+                    Sin Bloqueo Escolar
+                  </span>
+                </div>
+                <div class="chatgpt-topbar-actions">
+                  <button id="btnDownloadChat" class="topbar-btn" title="Descargar conversación (.txt)">
+                    <i class="fa-solid fa-download"></i>
+                  </button>
+                  <button id="btnCloakCurrentChat" class="topbar-btn" title="Abrir en ventana camuflada (about:blank)">
+                    <i class="fa-solid fa-user-secret"></i>
+                  </button>
+                  <button id="btnFullscreenChat" class="topbar-btn" title="Pantalla completa">
+                    <i class="fa-solid fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Messages List -->
+              <div id="chatgptMessages" class="chatgpt-messages">
+                <div class="chatgpt-msg-row ai">
+                  <div class="chatgpt-avatar ai">
+                    <i class="fa-solid fa-robot"></i>
+                  </div>
+                  <div class="chatgpt-bubble">
+                    <strong>¡Bienvenido a ChatGPT Web Integrado!</strong><br><br>
+                    Esta es tu estación de Inteligencia Artificial 100% desbloqueada dentro de Brazuk Hub. Puedes pedirme:
+                    <ul style="margin-left: 1.25rem; margin-top: 0.5rem; line-height: 1.6;">
+                      <li>Resolución detallada de problemas matemáticos y ciencias.</li>
+                      <li>Redacción de ensayos, biografías y corrección de ortografía.</li>
+                      <li>Explicaciones para cualquier materia o examen escolar.</li>
+                      <li>Generación de código en Python, JavaScript, HTML o C++ con botón para copiar.</li>
+                    </ul>
+                    <br>
+                    <em>¡Elige un prompt de la barra lateral o escribe lo que necesitas abajo!</em>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Area -->
+              <div class="chatgpt-input-box">
+                <div class="chatgpt-input-wrapper">
+                  <textarea id="chatgptTextarea" class="chatgpt-textarea" placeholder="Escribe un mensaje a ChatGPT... (Shift + Enter para salto de línea, Enter para enviar)"></textarea>
+                  <button id="chatgptSendBtn" class="chatgpt-send-action-btn" title="Enviar mensaje">
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.4rem; padding: 0 0.4rem; font-size: 0.72rem; color: var(--text-muted);">
+                  <span>⚡ Motor Híbrido: Inteligencia en tiempo real + Sistema Académico Escolar</span>
+                  <span id="chatCharCount">0 carácteres</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODO 3: LANZADOR ANTI-FILTRO ESCOLAR (CAMUFLAJE ABOUT:BLANK) -->
+        <div id="mode-cloak" class="chatgpt-mode-view">
+          <div class="chatgpt-cloak-container">
+            <div class="cloak-intro-card">
+              <div class="cloak-intro-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">
+                  ¿Cómo funciona el Camuflaje Anti-Filtro (about:blank Cloaking)?
+                </h3>
+                <p style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.5;">
+                  Los filtros y extensiones escolares (como GoGuardian, Securly, Lightspeed o Linewize) rastrean la barra de direcciones del navegador. Al hacer clic en un portal camuflado, el sistema crea una ventana limpia en <code style="color: #38bdf8; background: rgba(0,0,0,0.4); padding: 0.1rem 0.4rem; border-radius: 4px;">about:blank</code> con título ficticio de <strong>Google Drive</strong> o <strong>Documentos</strong>, impidiendo que el filtro detecte o bloquee la web de IA.
+                </p>
+              </div>
+            </div>
+
+            <div class="cloak-grid">
+              <!-- Card: ChatGPT Oficial -->
+              <div class="cloak-card">
+                <div class="cloak-card-top">
+                  <div class="cloak-card-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+                    <i class="fa-solid fa-comments"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-weight: 700; font-size: 0.95rem;">ChatGPT (OpenAI Oficial)</h4>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">chatgpt.com</span>
+                  </div>
+                </div>
+                <p style="font-size: 0.82rem; color: #94a3b8;">
+                  El modelo más avanzado para tareas, redacción y explicaciones profundas.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: auto;">
+                  <button class="btn-cloak-action" data-cloak-url="https://chatgpt.com/" data-title="Google Drive">
+                    <i class="fa-solid fa-user-secret"></i> Abrir con Camuflaje (about:blank)
+                  </button>
+                  <button class="btn-clean-action" data-open="app" data-url="https://chatgpt.com/" data-title="ChatGPT">
+                    <i class="fa-solid fa-window-restore"></i> Abrir Modo App Limpia
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+  </main>
+
+  <!-- ========================================== -->
+  <!-- IN-PAGE BROWSER WINDOW (WEB VIEWER MODAL)  -->
+  <!-- ========================================== -->
+  <div id="webViewerModal" class="web-modal">
+    <div id="webModalWindow" class="web-modal-window">
+      <!-- Titlebar -->
+      <div class="web-modal-titlebar">
+        <div class="window-dots">
+          <div id="dotClose" class="dot dot-close" title="Cerrar ventana"></div>
+          <div id="dotMin" class="dot dot-min" title="Minimizar"></div>
+          <div id="dotMax" class="dot dot-max" title="Pantalla completa"></div>
+        </div>
+
+        <div class="web-modal-addressbar">
+          <i class="fa-solid fa-lock" style="color: #10b981;"></i>
+          <input type="text" id="webModalUrl" readonly />
+        </div>
+
+        <div class="web-modal-controls">
+          <button id="modalReloadBtn" class="modal-ctrl-btn" title="Recargar página">
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+          <button id="modalExtBtn" class="modal-ctrl-btn" title="Abrir en pestaña externa si el sitio bloquea el marco">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+          <button id="modalCloseBtn" class="modal-ctrl-btn" style="color: #ef4444;" title="Cerrar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Helper Banner -->
+      <div class="web-modal-banner">
+        <span><i class="fa-solid fa-circle-info"></i> Navegador interno Brazuk Hub: Juega y consulta dentro de la misma web.</span>
+        <span style="font-size: 0.75rem; opacity: 0.85;">Presiona <strong>ESC</strong> o la [X] para cerrar</span>
+      </div>
+
+      <!-- Iframe Body -->
+      <div class="web-modal-body">
+        <!-- Bloqueo de seguridad detectado -->
+        <div id="modalBlockedNotice" class="modal-blocked-notice">
+          <div class="blocked-card" style="max-width: 600px;">
+            <div id="blockedIcon" class="blocked-icon">
+              <i class="fa-solid fa-robot" style="color: #10a37f;"></i>
+            </div>
+            <h3 id="blockedSiteName">Acceso Protegido por el Proveedor</h3>
+            <p id="blockedSiteDesc">
+              Por políticas de seguridad y derechos, esta plataforma impide incrustarse dentro de marcos web convencionales (por eso salía el error <em>"refused to connect"</em>).<br><br>
+              ¡Puedes abrirlo de inmediato en <strong>Ventana Modo App</strong> limpia y sin pestañas externas, o usar el <strong>Modo Camuflaje</strong>!
+            </p>
+
+            <!-- Opciones para Portales IA (ChatGPT, Google, etc.) -->
+            <div id="modalAiOptions" class="blocked-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <button id="btnSwitchToChatGPTWeb" class="btn-app-mode" style="background: linear-gradient(135deg, #10a37f, #059669); grid-column: span 2;">
+                <i class="fa-solid fa-comments"></i> Abrir ChatGPT Web Integrado
+              </button>
+              
+              <button id="btnCloakCurrentModal" class="btn-use-builtin" style="background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3); color: #34d399;">
+                <i class="fa-solid fa-user-secret"></i> Camuflaje about:blank
+              </button>
+              <button id="btnOpenAppMode" class="btn-use-builtin" style="grid-column: span 2;">
+                <i class="fa-solid fa-window-restore"></i> Abrir en Ventana Modo App Limpia
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <iframe id="webModalIframe" class="web-modal-iframe" allow="autoplay; fullscreen; camera; microphone; clipboard-read; clipboard-write; encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODO PÁNICO / PANTALLA DE CAMUFLAJE       -->
+  <!-- ========================================== -->
+  <div id="panicScreen" class="panic-screen">
+    <div class="fake-wiki-nav">
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <span style="font-size: 20px; font-weight: bold; font-family: Georgia, serif;">Wikipedia</span>
+        <span style="color: #555; font-size: 13px;">La enciclopedia libre</span>
+      </div>
+      <div style="font-size: 13px; color: #0645ad;">
+        <span>Artículo</span> · <span>Discusión</span> · <span>Leer</span> · <span>Ver código fuente</span>
+      </div>
+    </div>
+    
+    <div class="fake-wiki-content">
+      <h1>Célula eucariota</h1>
+      <p style="font-size: 13px; color: #555; margin-bottom: 20px;">De Wikipedia, la enciclopedia libre</p>
+      <p>
+        Se denominan <strong>células eucariotas</strong> a todas las células con un núcleo celular delimitado dentro de una doble capa lipídica: la envoltura celular, la cual es porosa y contiene su información genética, principalmente su ADN.
+      </p>
+      <p style="margin-top: 15px;">
+        Las células eucariotas son las que tienen los seres vivos eucariontes, que comprenden los reinos de los animales, las plantas, los hongos y los protistas. A diferencia de las células procariotas (como las bacterias), poseen un citoplasma compartimentado por orgánulos celulares membranosos como las mitocondrias, el retículo endoplasmático y el aparato de Golgi.
+      </p>
+      <h2 style="font-size: 18px; margin-top: 25px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Estructura y organelos principales</h2>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Núcleo celular:</strong> Contiene el material genético (ADN) protegido por la membrana nuclear.</li>
+        <li><strong>Mitocondrias:</strong> Centrales energéticas encargadas de la respiración celular y producción de ATP.</li>
+        <li><strong>Ribosomas:</strong> Complejos moleculares responsables de la síntesis de proteínas.</li>
+        <li><strong>Aparato de Golgi:</strong> Procesa, empaqueta y distribuye lípidos y proteínas.</li>
+      </ul>
+    </div>
+
+    <div id="restoreBtn" class="panic-restore-tip">
+      <i class="fa-solid fa-arrow-rotate-left"></i> Haz clic aquí o presiona <strong>ESC</strong> para volver al portal
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://js.puter.com/v2/"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
